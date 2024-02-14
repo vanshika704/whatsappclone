@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -48,9 +49,9 @@ class _SignupState extends State<Signup> {
           ),
          ElevatedButton(
   onPressed: () {
-    Get.to(() => otp()); 
+    Get.to(() => const otp()); 
   },
-  child: Text("Submit"),
+  child: const Text("Submit"),
 )],
               ),
         ));

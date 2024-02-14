@@ -2,12 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:whatsappclone/Signup.dart';
-
+import 'package:whatsappclone/firebase_options.dart';
 import 'package:whatsappclone/otp.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FirebaseFirestore.instance.settings = Settings(
+    persistenceEnabled: true,
+  );
   runApp(const MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,10 +28,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Whatsapp',
-      home: Signup(),
+      home: const Signup(),
       initialRoute: '/',
       getPages: [
-        GetPage(name: '/otp', page: () => otp()),
+        GetPage(name: '/otp', page: () => const otp()),
       ],
     );
   }
