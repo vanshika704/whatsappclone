@@ -1,7 +1,7 @@
 {
   "file_generated_by": "FlutterFire CLI",
   "purpose": "FirebaseAppID & ProjectID for this Firebase app in this directory",
-  "GOOGLE_APP_ID": "1:52786343622:ios:312fb94ae21f8c9235f1c7",
-  "FIREBASE_PROJECT_ID": "whatsappclone704",
-  "GCM_SENDER_ID": "52786343622"
+  "GOOGLE_APP_ID": "1:482148508085:ios:b96e21bbede6d68b44b9fc",
+  "FIREBASE_PROJECT_ID": "whatsapp704",
+  "GCM_SENDER_ID": "482148508085"
 }

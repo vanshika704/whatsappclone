@@ -44,38 +44,42 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyC6ZAuCbZYjJPOgbqWFAG3lJdsdCWT-OEM',
-    appId: '1:52786343622:web:f3a7c0a5c1b22c5a35f1c7',
-    messagingSenderId: '52786343622',
-    projectId: 'whatsappclone704',
-    authDomain: 'whatsappclone704.firebaseapp.com',
-    storageBucket: 'whatsappclone704.appspot.com',
-    measurementId: 'G-XWF9T9DYNM',
+    apiKey: 'AIzaSyB_nMsPGs1dyUgCIq-NC3O2ykCwyIxQF_Y',
+    appId: '1:482148508085:web:527ea039e6b7822e44b9fc',
+    messagingSenderId: '482148508085',
+    projectId: 'whatsapp704',
+    authDomain: 'whatsapp704.firebaseapp.com',
+    databaseURL: 'https://whatsapp704-default-rtdb.firebaseio.com',
+    storageBucket: 'whatsapp704.appspot.com',
+    measurementId: 'G-8WD50R5P93',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyApvm1XE6oZi-XYxWVmAGrnrDkwMrwLnBI',
-    appId: '1:52786343622:android:eb36a07ff372a81835f1c7',
-    messagingSenderId: '52786343622',
-    projectId: 'whatsappclone704',
-    storageBucket: 'whatsappclone704.appspot.com',
+    apiKey: 'AIzaSyD1llVCIGUQgHO7G9aom5BNWNpI0rqNMFU',
+    appId: '1:482148508085:android:658db6ee343139e144b9fc',
+    messagingSenderId: '482148508085',
+    projectId: 'whatsapp704',
+    databaseURL: 'https://whatsapp704-default-rtdb.firebaseio.com',
+    storageBucket: 'whatsapp704.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD-eGxCwA5LW2pBNeOjIg5QP9c4T1YQzps',
-    appId: '1:52786343622:ios:312fb94ae21f8c9235f1c7',
-    messagingSenderId: '52786343622',
-    projectId: 'whatsappclone704',
-    storageBucket: 'whatsappclone704.appspot.com',
+    apiKey: 'AIzaSyATN7AYbgm5geioyOa4OH4uPXMWPXrqIOI',
+    appId: '1:482148508085:ios:b96e21bbede6d68b44b9fc',
+    messagingSenderId: '482148508085',
+    projectId: 'whatsapp704',
+    databaseURL: 'https://whatsapp704-default-rtdb.firebaseio.com',
+    storageBucket: 'whatsapp704.appspot.com',
     iosBundleId: 'com.example.whatsappclone',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyD-eGxCwA5LW2pBNeOjIg5QP9c4T1YQzps',
-    appId: '1:52786343622:ios:13c9e0baff6206c035f1c7',
-    messagingSenderId: '52786343622',
-    projectId: 'whatsappclone704',
-    storageBucket: 'whatsappclone704.appspot.com',
+    apiKey: 'AIzaSyATN7AYbgm5geioyOa4OH4uPXMWPXrqIOI',
+    appId: '1:482148508085:ios:42c65a42d364d27a44b9fc',
+    messagingSenderId: '482148508085',
+    projectId: 'whatsapp704',
+    databaseURL: 'https://whatsapp704-default-rtdb.firebaseio.com',
+    storageBucket: 'whatsapp704.appspot.com',
     iosBundleId: 'com.example.whatsappclone.RunnerTests',
   );
 }
