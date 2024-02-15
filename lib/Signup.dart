@@ -67,12 +67,16 @@ class _SignupState extends State<Signup> {
                       prefixIcon: Icon(Icons.password_outlined),
                     )),
               )),
-          ElevatedButton(
-            onPressed: () {
-              Get.to(() => const otp());
-            },
-            child: const Text("Submit"),
-          )
+         ElevatedButton(
+  style: ElevatedButton.styleFrom(
+    primary: const Color.fromARGB(255, 30, 184, 35),
+  ),
+  onPressed: () {
+    Get.to(() => const otp());
+  },
+  child: const Text("Submit"),
+)
+
         ],
       ),
     ));
