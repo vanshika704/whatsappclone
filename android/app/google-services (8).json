@@ -21,6 +21,10 @@
             "package_name": "com.example.whatsappclone",
             "certificate_hash": "5585886733d8502cb8b63faebd9727f458785938"
           }
+        },
+        {
+          "client_id": "482148508085-q6jkneeebju5mtbll3okn6gsvp3vvt0c.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [

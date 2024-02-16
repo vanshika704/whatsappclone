@@ -17,16 +17,44 @@ class _SignupState extends State<Signup> {
   final TextEditingController _passwordController = TextEditingController();
 
   Future<UserCredential> signInWithGoogle() async {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
 
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
 
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+      await FirebaseAuth.instance.signInWithCredential(credential);
+
+      return await FirebaseAuth.instance.signInWithCredential(credential);
+    } catch (e) {
+      print('Error signing in with Google: $e');
+      rethrow;
+    }
+  }
+
+  Future<void> _signInWithEmail() async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+
+      Get.to(() => const page1());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      } else {
+        print('Error creating account: $e');
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
@@ -90,7 +118,7 @@ class _SignupState extends State<Signup> {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: const Color.fromARGB(255, 30, 184, 35),
+                backgroundColor: const Color.fromARGB(255, 30, 184, 35),
               ),
               onPressed: () async {
                 try {
@@ -105,16 +133,16 @@ class _SignupState extends State<Signup> {
                 style:
                     TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
-            ),
+            ),SizedBox(height: 20,),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: const Color.fromARGB(255, 30, 184, 35),
+                backgroundColor: const Color.fromARGB(255, 30, 184, 35),
               ),
               onPressed: () {
-                Get.to(() => const page1());
+                _signInWithEmail();
               },
               child: const Text(
-                "SIGN IN WITH PAGE1",
+                "SIGN IN WITH EMAIL",
                 style:
                     TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
@@ -125,3 +153,5 @@ class _SignupState extends State<Signup> {
     );
   }
 }
+
+
