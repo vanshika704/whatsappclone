@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:whatsappclone/otp.dart';
+import 'package:whatsappclone/contacts.dart';
 
 class Signup extends StatefulWidget {
   const Signup({Key? key}) : super(key: key);
@@ -15,14 +15,12 @@ class Signup extends StatefulWidget {
 class _SignupState extends State<Signup> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-final GoogleSignIn _googleSignIn = GoogleSignIn(
-    clientId: 'AIzaSyD1llVCIGUQgHO7G9aom5BNWNpI0rqNMFU.apps.googleusercontent.com',
-  );
 
   Future<UserCredential> signInWithGoogle() async {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
-     
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
     final credential = GoogleAuthProvider.credential(
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
@@ -96,14 +94,30 @@ final GoogleSignIn _googleSignIn = GoogleSignIn(
               ),
               onPressed: () async {
                 try {
-                  
                   await signInWithGoogle();
-                 Get.to(() => const otp());
+                  Get.to(() => const page1());
                 } catch (e) {
                   print('Error signing in: $e');
                 }
               },
-              child: const Text("SIGN IN WITH GOOGLE",style:TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
+              child: const Text(
+                "SIGN IN WITH GOOGLE",
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: const Color.fromARGB(255, 30, 184, 35),
+              ),
+              onPressed: () {
+                Get.to(() => const page1());
+              },
+              child: const Text(
+                "SIGN IN WITH PAGE1",
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),
