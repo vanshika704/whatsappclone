@@ -43,7 +43,7 @@ class _SignupState extends State<Signup> {
         password: _passwordController.text,
       );
 
-      Get.to(() => const page1());
+      Get.to(() => const Page1());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
@@ -123,7 +123,7 @@ class _SignupState extends State<Signup> {
               onPressed: () async {
                 try {
                   await signInWithGoogle();
-                  Get.to(() => const page1());
+                  Get.to(() => const Page1());
                 } catch (e) {
                   print('Error signing in: $e');
                 }
